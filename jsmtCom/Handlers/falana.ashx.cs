@@ -6,15 +6,20 @@ using System.Web.Script.Serialization;
 
 namespace jsmtcom.Handlers
 {
-
     public class Falana : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             string keyword = context.Request.QueryString["keyword"];
-            string connectionString = ConfigurationManager.ConnectionStrings["jsm33t_db"].ConnectionString;
-            string query = "SELECT * FROM SearchMaster WHERE title LIKE '" + keyword + "%' or description LIKE '" + keyword + "%' ";
+            string connectionString = ConfigurationManager.ConnectionStrings[
+                "jsm33t_db"
+            ].ConnectionString;
+            string query =
+                "SELECT * FROM SearchMaster WHERE title LIKE '"
+                + keyword
+                + "%' or description LIKE '"
+                + keyword
+                + "%' ";
 
             List<SearchKeysDummy> myList = new List<SearchKeysDummy>();
 
@@ -47,12 +52,10 @@ namespace jsmtcom.Handlers
 
         public bool IsReusable
         {
-            get
-            {
-                return false;
-            }
+            get { return false; }
         }
     }
+
     public class SearchKeysDummy
     {
         public int Id { get; set; }

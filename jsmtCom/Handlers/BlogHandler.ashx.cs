@@ -7,7 +7,6 @@ namespace jsmtcom.Handlers
 {
     public class BlogHandler : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
@@ -16,10 +15,7 @@ namespace jsmtcom.Handlers
 
         public bool IsReusable
         {
-            get
-            {
-                return false;
-            }
+            get { return false; }
         }
     }
 }

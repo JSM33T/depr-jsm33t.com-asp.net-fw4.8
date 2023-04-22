@@ -19,7 +19,6 @@ namespace jsmtcom.Account
             {
                 nava.Attributes["class"] = "dropdown-item active";
             }
-
         }
     }
 }

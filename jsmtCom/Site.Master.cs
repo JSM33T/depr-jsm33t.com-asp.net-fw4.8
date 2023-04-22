@@ -8,9 +8,16 @@ namespace jsmtcom
 {
     public partial class SiteMaster : MasterPage
     {
-        private string avatarimage, userrole;
-        public string Avtimage { get { return avatarimage; } }
-        public string Role { get { return userrole; } }
+        private string avatarimage,
+            userrole;
+        public string Avtimage
+        {
+            get { return avatarimage; }
+        }
+        public string Role
+        {
+            get { return userrole; }
+        }
         public string WrapperThemeControl
         {
             get { return WrapperTheme.Text; }
@@ -21,9 +28,9 @@ namespace jsmtcom
             get { return BodyClass.Text; }
             set { BodyClass.Text = value; }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             if (System.Web.HttpContext.Current.Session["user_id"] != null)
             {
                 userrole = Session["role"].ToString();
@@ -34,12 +41,19 @@ namespace jsmtcom
                 avatarimage = "default";
                 userrole = "guest";
             }
-           // redirect = HttpContext.Current.Request.Url.AbsolutePath.ToString();
+            // redirect = HttpContext.Current.Request.Url.AbsolutePath.ToString();
             //set avatar images
-            avatarmaster.Attributes.Add("src", "/Content/images/avatars/default/" + avatarimage + ".png");
-            avtmobilemaster.Attributes.Add("src", "/Content/images/avatars/default/" + avatarimage + ".png");
+            avatarmaster.Attributes.Add(
+                "src",
+                "/Content/images/avatars/default/" + avatarimage + ".png"
+            );
+            avtmobilemaster.Attributes.Add(
+                "src",
+                "/Content/images/avatars/default/" + avatarimage + ".png"
+            );
             // redir back to login initiating page
-            string redurl = "/account/login?red=" + HttpContext.Current.Request.Url.AbsolutePath.ToString();
+            string redurl =
+                "/account/login?red=" + HttpContext.Current.Request.Url.AbsolutePath.ToString();
             nav_login.Attributes.Add("href", redurl);
             og_desc.Attributes.Add("Content", Page.MetaDescription.ToString());
             og_title.Attributes.Add("Content", Page.Title.ToString());
@@ -49,7 +63,6 @@ namespace jsmtcom
             wrapper_theme.Attributes.Add("class", WrapperTheme.Text);
 
             Menustate();
-
         }
 
         protected void LogOutClick(object sender, EventArgs e)
@@ -57,8 +70,8 @@ namespace jsmtcom
             Session.Abandon();
             fname.Text = "guest";
             Response.Redirect(HttpContext.Current.Request.Url.ToString());
-
         }
+
         protected void Menustate()
         {
             if (System.Web.HttpContext.Current.Session["user_id"] != null)
@@ -68,7 +81,6 @@ namespace jsmtcom
 
                 nav_login.Visible = false;
                 mobile_nav_login.Visible = false;
-
 
                 nav_profile.Attributes.Add("class", "dropdown-item");
                 mobile_nav_profile.Attributes.Add("class", "dropdown-item");
@@ -92,7 +104,6 @@ namespace jsmtcom
             }
             else
             {
-
                 fname.Text = "guest";
                 fname_mobile.Text = "guest";
 
@@ -107,9 +118,7 @@ namespace jsmtcom
 
                 nav_admin.Visible = false;
                 mobile_nav_admin.Visible = false;
-
             }
-
         }
     }
 }

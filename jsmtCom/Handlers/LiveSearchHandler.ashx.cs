@@ -12,13 +12,21 @@ namespace jsmtcom.Handlers
         public string Title { get; set; }
         public string Description { get; set; }
     }
+
     public class LiveSearchHandler : IHttpHandler
     {
         public void ProcessRequest(HttpContext context)
         {
             string keyword = context.Request.QueryString["keyword"];
-            string connectionString = ConfigurationManager.ConnectionStrings["jsm33t_db"].ConnectionString;
-            string query = "SELECT * FROM SearchMaster WHERE title LIKE '%" + keyword + "%' or description LIKE '%" + keyword + "%' ";
+            string connectionString = ConfigurationManager.ConnectionStrings[
+                "jsm33t_db"
+            ].ConnectionString;
+            string query =
+                "SELECT * FROM SearchMaster WHERE title LIKE '%"
+                + keyword
+                + "%' or description LIKE '%"
+                + keyword
+                + "%' ";
 
             List<SearchKeys> myList = new List<SearchKeys>();
 
@@ -51,10 +59,7 @@ namespace jsmtcom.Handlers
 
         public bool IsReusable
         {
-            get
-            {
-                return false;
-            }
+            get { return false; }
         }
     }
 }

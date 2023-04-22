@@ -121,7 +121,6 @@ Project Link: [https://github.com/jsm33t/jsm33t.com](https://github.com/jsm33t/j
 [issues-shield]: https://img.shields.io/github/issues/jsm33t/jsm33t.com.svg?style=for-the-badge
 [issues-url]: https://github.com/jsm33t/jsm33t.com/issues
 
-
 [product-screenshot]: resources/images/screenshot_a.png
 [product-screenshot_music]: resources/images/screenshot_a.png
 [product-screenshot_apps]: resources/images/screenshot_a.png

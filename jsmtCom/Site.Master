@@ -1,0 +1,460 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="jsmtcom.SiteMaster" EnableViewState="true" %>
+
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+    <link href="~/Content/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="description" content="<%:Page.MetaDescription%>" />
+    <meta name="keywords" content="<%:Page.MetaKeywords%>">
+    <meta name="author" content="Jsm33t">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="Website" />
+    <%--def title to be set--%>
+    <meta property="og:title" content="" id="og_title" runat="server" />
+    <meta property="og:description" content="" id="og_desc" runat="server" />
+    <meta property="og:url" content="" id="og_url" runat="server" />
+    <meta property="og:site_name" content="jsm33t.com" />
+    <meta property="og:image" content="https://jsm33t.com/resources/images/logos/logo.png" />
+    <meta property="og:image:width" content="2514" />
+    <meta property="og:image:height" content="1380" />
+    <meta property="og:image:type" content="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/favicon/favicon-16x16.png">
+    <%--<link rel="manifest" href="/Content/favicon/site.webmanifest">--%>
+    <link rel="mask-icon" color="#6366f1" href="/Content/favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="/Content/favicon/browserconfig.xml">
+    <meta name="theme-color" content="white">
+    <script>
+        let mode = window.localStorage.getItem('mode'),
+            root = document.getElementsByTagName('html')[0];
+        if (mode !== undefined && mode === 'dark') {
+            root.classList.add('dark-mode');
+        } else {
+            root.classList.remove('dark-mode');
+        }
+        (function () {
+            window.onload = function () {
+                const preloader = document.querySelector('.page-loading');
+                preloader.classList.remove('active');
+                setTimeout(function () {
+                    preloader.remove();
+                    //keeping the loader temporarily off
+                }, 0);
+
+                let elem_theme = localStorage.getItem("cust_theme");
+                if (elem_theme !== undefined && elem_theme !== "") { document.getElementById("custom_theme").innerHTML = elem_theme; }
+                let elem_font = localStorage.getItem("cust_font");
+                if (elem_font !== undefined && elem_font !== "") {
+                    var a = document.getElementById('custom_font');
+                    a.href = elem_font;
+                }
+
+                //if (screen.width < 3000) {
+                //    document.getElementById('cursor_out').setAttribute("hidden", "hidden"); 
+                //    document.getElementById('cursor_in').setAttribute("hidden", "hidden"); 
+                //}
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.ctrlKey && event.key === 'f') {
+                        event.preventDefault();
+                        document.getElementById('search_trigger_a').click();
+                    }
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.ctrlKey && event.key === 'd') {
+                        event.preventDefault();
+                        var themeMode = document.getElementById("theme-mode");
+                        var persMode = document.getElementById("dmode-trigger");
+
+                        if (themeMode.checked) {
+                            themeMode.checked = false;
+                            if (persMode) { persMode.checked = false; }
+                            root.classList.remove('dark-mode');
+                            localStorage.removeItem("mode");
+                        }
+                        else {
+                           
+                            themeMode.checked = true;
+                            if (persMode) { persMode.checked = true; }
+                            root.classList.add('dark-mode');
+                            localStorage.setItem("mode", "dark")
+                        }
+                    }
+                });
+            };
+        })();
+
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" id="custom_font">
+    <link rel="stylesheet" media="screen" href="/Content/library/aos/dist/aos.css" />
+    <link rel="stylesheet" media="screen" href="/Content/library/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" media="screen" href="/Content/library/lightgallery/css/lightgallery-bundle.min.css" />
+    <link rel="stylesheet" media="screen" href="/Content/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="/Content/css/jsm33t.css">
+<%--    <link href="Content/css/contextmenu.css" rel="stylesheet" />
+    <script src="Content/css/contextmenu.js"></script>--%>
+    <style id="custom_theme"></style>
+
+    <script src="/Scripts/jquery-3.6.0.js"></script>
+    <script>
+    
+    </script>
+
+    <%--page specific styles--%>
+    <asp:ContentPlaceHolder ID="PageStyles" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body id="mainbody" runat="server">
+   
+    <div id="cursor_out" class="cursor cursorvis"></div>
+        <div id="cursor_in" class="cursor2 cursorvis"></div>
+
+
+    <span hidden="hidden">
+        <asp:Literal ID="BodyClass" runat="server" /></span>
+    <div class="page-loading active">
+        <div class="page-loading-inner">
+            <div class="page-spinner"></div>
+            <span>Loading...</span>
+        </div>
+    </div>
+    <form runat="server">
+ <%--       <div id="cursor_out" class="cursor cursorvis"></div>
+        <div id="cursor_in" class="cursor2 cursorvis"></div>--%>
+        <asp:ScriptManager runat="server" EnableCdn="true">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+        <main class="page-wrapper" id="cmenu">
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" data-focus-input="#search">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header d-block position-relative border-0 pb-3">
+                            <div class="position-relative w-100 mt-2 mb-2">
+                                <button class="btn-close position-absolute top-50 end-0 translate-middle-y m-0 me-n1" type="button" data-bs-dismiss="modal">
+                                </button>
+                                <i class="ai-search fs-xl position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                                <input id="global_search" onkeyup="livesearch()" class="form-control form-control-lg px-5" type="search" placeholder="Type to search" data-focus-on-open="[&quot;modal&quot;, &quot;#searchModal&quot;]" />
+                            </div>
+                            <div id="search_stat" class="fs-xs fw-medium text-muted text-uppercase">Search</div>
+                        </div>
+                        <div class="modal-body pt-3">
+                            <div id="search_results">
+
+                                <%--   <div class="d-flex align-items-center border-bottom pb-4 mb-4">
+                                    <a class="position-relative d-inline-block flex-shrink-0 bg-secondary rounded-1" href="shop-single.html"><span class="badge bg-info position-absolute top-0 start-100 translate-middle ms-n1">Shop</span><img src="/Content/img/shop/cart/01.png" width="90" alt="Product"/></a>
+                                    <div class="ps-3">
+                                        <h4 class="h6 mb-2"><a href="/">Candle in concrete bowl</a></h4>
+                                        <span class="mb-0 me-2">$11.00</span>
+                                        <del class="fs-sm text-muted ms-auto">$15.00</del>
+                                    </div>
+                                </div>--%>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span hidden="hidden">
+                <asp:Literal ID="WrapperTheme" runat="server" /></span>
+            <div class="" id="wrapper_theme" runat="server">
+                <header class="navbar navbar-expand-lg fixed-top" id="masterHeader" runat="server">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">
+                            <span class="text-primary flex-shrink-0">
+                                <svg style="margin-left: 0px" version="1.0" xmlns="http://www.w3.org/2000/svg" width="75.000000pt"
+                                    height="24.000000pt" viewBox="0 0 1000.000000 300.000000" preserveAspectRatio="xMidYMid meet">
+                                    <g transform="translate(0.000000,275.000000) scale(0.100000,-0.100000)" fill="currentColor"
+                                        stroke="none">
+                                        <path
+                                            d="M520 2725 c0 -3 0 -104 0 -225 0 -121 0 -224 0 -230 0 -6 84 -10 230 -10 l231 0 -3 -787 c-4 -900 0 -858 -87 -944 -71 -71 -168 -85 -263 -38 -43 22 -73 62 -104 138 l-23 56 -250 3 c-138 1 -251 -1 -251 -5 0 -5 11 -48 24 -98 47 -173 117 -297 228 -401 188 -175 476 -231 735 -142 132 45 199 87 281 173 103 108 159 228 187 400 12 75 15 262 15 1103 l0 1012 -475 0 c-261 0 -475 -2 -475 -5z">
+                                        </path>
+                                        <path
+                                            d="M2305 2734 c-326 -53 -572 -272 -639 -571 -21 -92 -21 -270 0 -371 33 -164 134 -314 272 -405 79 -53 217 -116 397 -182 201 -74 271 -111 341 -180 74 -73 96 -129 96 -242 -1 -96 -31 -162 -107 -231 -73 -67 -154 -97 -260 -96 -102 1 -167 28 -229 94 -61 66 -88 121 -111 232 l-5 28 -256 0 -257 0 7 -60 c21 -187 95 -345 226 -484 176 -186 400 -275 664 -263 198 9 362 65 508 176 127 96 233 262 280 436 31 118 31 338 -1 450 -82 290 -258 442 -689 594 -95 34 -198 74 -230 90 -70 35 -146 115 -161 167 -14 52 -14 147 1 198 18 60 99 138 163 157 100 29 212 9 275 -48 54 -48 76 -86 97 -168 l19 -70 244 0 244 0 -3 49 c-8 132 -80 311 -171 423 -96 119 -250 219 -395 258 -60 16 -263 28 -320 19z">
+                                        </path>
+                                        <path
+                                            d="M3447 2481 l-187 -269 2 -417 3 -417 160 233 160 234 3 -907 c1 -533 6 -908 11 -908 5 0 168 233 362 518 775 1134 880 1287 889 1290 7 2 10 -320 10 -912 l0 -916 250 0 250 0 0 1370 0 1370 -232 0 -233 0 -390 -560 c-214 -307 -393 -559 -397 -559 -5 -1 -8 251 -8 559 l0 560 -232 0 -233 -1 -188 -268z">
+                                        </path>
+                                        <path
+                                            d="M5445 2727 c-3 -7 -4 -114 -3 -237 l3 -225 483 -3 482 -2 0 -330 0 -330 -272 -2 -273 -3 0 -235 0 -235 273 -3 272 -2 0 -320 c0 -249 -3 -320 -12 -320 -7 0 -220 0 -473 0 -253 0 -466 -4 -473 -8 -9 -7 -12 -61 -10 -238 l3 -229 738 -3 737 -2 -2 1367 -3 1368 -733 3 c-588 2 -734 0 -737 -11z">
+                                        </path>
+                                        <path
+                                            d="M7002 2503 l3 -238 478 -3 477 -2 0 -330 0 -330 -267 -2 -268 -3 -3 -237 -2 -238 270 0 270 0 -2 -320 -3 -321 -475 -2 -475 -2 -3 -237 -2 -238 735 0 735 0 0 1370 0 1370 -735 0 -735 0 2 -237z">
+                                        </path>
+                                        <path
+                                            d="M8557 2723 c-4 -3 -7 -618 -7 -1365 l0 -1358 255 0 255 0 0 1130 0 1130 253 2 252 3 3 233 2 232 -503 0 c-277 0 -507 -3 -510 -7z">
+                                        </path>
+                                    </g>
+                                </svg>
+
+                            </span>
+                        </a>
+                        <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
+                            <input class="form-check-input" type="checkbox" id="theme-mode" />
+                            <label class="form-check-label" for="theme-mode"><i class="ai-sun fs-lg"></i></label>
+                            <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
+                        </div>
+                        <div class="nav align-items-center order-lg-3 ms-n1 me-3 me-sm-2">
+                            <a class="nav-link fs-4 p-2 mx-sm-1" id="search_trigger_a"
+                                href="#searchModal" data-bs-toggle="modal"><i class="ai-search"></i></a>
+                        </div>
+                        <!-- User signed in state. Account dropdown on screens > 576px-->
+                        <div class="dropdown nav d-none d-sm-block order-lg-3">
+
+                            <a class="nav-link d-flex align-items-center p-0"
+                                href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <asp:UpdatePanel ID="avatarmasterpanel" UpdateMode="Always" runat="server">
+                                    <ContentTemplate>
+                                        <img class="border rounded-circle"
+                                            src="/Content/images/avatars/default/default.png" width="48" alt="avatar image" id="avatarmaster" runat="server" />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                                <asp:UpdatePanel ID="fnamemasterpanel" UpdateMode="Always" runat="server">
+                                    <ContentTemplate>
+                                        <div class="ps-2">
+                                            <div class="fs-xs lh-1 opacity-60">Hello,</div>
+                                            <div class="fs-sm dropdown-toggle">
+                                                <asp:Literal ID="fname" runat="server" />
+                                            </div>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end my-1">
+                                <h6 class="dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1"><%=Role %></h6>
+                                <a class="dropdown-item" id="nav_login" href="/account/login?red" runat="server"><i class="ai-user-check fs-lg opacity-70 me-2"></i>Log In</a>
+                                <a class="dropdown-item" href="/account/adminpanel" id="nav_admin" runat="server"><i class="ai-settings fs-lg opacity-70 me-2"></i>Admin Panel</a>
+                                <a class="dropdown-item " href="/site/personalize"><i class="ai-paint-roll fs-lg opacity-70 me-2"></i>Personalize</a>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1">Account</h6>
+                                <a class="dropdown-item disabled" id="nav_profile" href="/account" runat="server"><i class="ai-user-check fs-lg opacity-70 me-2"></i>Profile</a>
+
+                                <a class="dropdown-item disabled" id="nav_favourites" href="#" runat="server"><i class="ai-heart fs-lg opacity-70 me-2"></i>Favourites</a>
+                                <button class="dropdown-item" id="nav_logout" runat="server"><i class="ai-logout fs-lg opacity-70 me-2"></i>Log Out</button>
+                            </div>
+                        </div>
+                        <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                        <nav class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
+                                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Topics</a>
+                                    <div class="dropdown-menu overflow-hidden p-0">
+                                        <div class="d-lg-flex">
+                                            <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li><a class="dropdown-item" id="nav_home" href="/" runat="server">Home</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 rounded-3 rounded-start-0"
+                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item " id="nav_music" href="/music" runat="server">Music</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item " id="nav_gallery" href="/gallery">Gallery</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" id="nav_blogs" href="#">Blogs</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                        style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" href="#">Shop</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" href="#">Portfolio<span
+                                                        class="text-danger fs-xs ms-2">New</span></a><span
+                                                            class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                            style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" href="#">Archive</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                        style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" href="#">People</a><span
+                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
+                                                        style="background-image: url(/Content/images/megamenu/marketing-agency.jpg);"></span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="mega-dropdown-column position-relative border-start zindex-3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="nav_music_pages" href="#" data-bs-toggle="dropdown" aria-expanded="false" runat="server">Music</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" id="nav_music_home" href="/music" runat="server">/</a></li>
+                                                <li><a class="dropdown-item disabled" href="#">Singles</a></li>
+                                                <li><a class="dropdown-item disabled" href="#">Albums</a></li>
+                                                <li><a class="dropdown-item disabled" href="#">Discography</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a class="dropdown-item  dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown" aria-expanded="false">Gallery</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="/gallery">/</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#"
+                                            data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="/blog">/</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item"><a class="nav-link disabled" href="/me">Me</a></li>
+
+                                <li class="nav-item dropdown d-sm-none border-top mt-2 pt-2"><a class="nav-link" href="#"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <asp:UpdatePanel ID="avatarmaster_mobile" UpdateMode="Always" runat="server">
+                                        <ContentTemplate>
+                                            <img class="border rounded-circle"
+                                                src="/Content/images/avatars/default/default.png" width="48" alt="avatar image" id="avtmobilemaster" runat="server" />
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                    <asp:UpdatePanel ID="fnamemaster_mobile" UpdateMode="Always" runat="server">
+                                        <ContentTemplate>
+                                            <div class="ps-2">
+                                                <div class="fs-xs lh-1 opacity-60">Hey,</div>
+                                                <div class="fs-sm dropdown-toggle">
+                                                    <asp:Literal ID="fname_mobile" runat="server" />
+                                                </div>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </a>
+                                    <div class="dropdown-menu">
+                                        <h6 class="dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1"><%=Role %></h6>
+
+                                        <a class="dropdown-item " href="/account/login" id="mobile_nav_login" runat="server"><i class="ai-user-check fs-lg opacity-70 me-2"></i>Log In</a><a class="dropdown-item" href="/site/personalize"><i class="ai-paint-roll fs-lg opacity-70 me-2"></i>Personalize</a>
+                                        <a class="dropdown-item" href="/account/adminpanel" id="mobile_nav_admin" runat="server"><i class="ai-settings fs-lg opacity-70 me-2"></i>Admin Panel</a>
+                                        <a class="dropdown-item disabled" id="mobile_nav_profile" href="/account" runat="server"><i class="ai-user-check fs-lg opacity-70 me-2"></i>Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <h6 class="dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1">Account</h6>
+
+
+                                        <a class="dropdown-item disabled" id="mobile_nav_favourites" href="#" runat="server"><i class="ai-heart fs-lg opacity-70 me-2"></i>Favourites</a>
+                                        <a class="dropdown-item disabled" id="mobile_nav_logout" href="#" runat="server"><i class="ai-logout fs-lg opacity-70 me-2"></i>Log Out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:UpdatePanel ID="login_btn" runat="server">
+                <ContentTemplate>
+                    <asp:Button Text="Login" ID="btn_logout" OnClick="LogOutClick" runat="server" hidden="hidden" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </main>
+        <footer class="footer  py-5">
+            <div class="container pt-1 pt-sm-2 pt-md-3 pt-lg-4 pt-xl-5">
+                <div class="border-bottom text-center pb-4">
+                    <a class="navbar-brand d-inline-flex text-nav py-0 mb-3 mb-md-4" href="/"><span class="text-primary flex-shrink-0 me-0" style="--ar-navbar-brand-margin-end: 0rem">
+                        <svg style="margin-left: 10px" version="1.0" xmlns="http://www.w3.org/2000/svg" width="75.000000pt" height="24.000000pt" viewBox="0 0 1000.000000 300.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,275.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+                                <path d="M520 2725 c0 -3 0 -104 0 -225 0 -121 0 -224 0 -230 0 -6 84 -10 230 -10 l231 0 -3 -787 c-4 -900 0 -858 -87 -944 -71 -71 -168 -85 -263 -38 -43 22 -73 62 -104 138 l-23 56 -250 3 c-138 1 -251 -1 -251 -5 0 -5 11 -48 24 -98 47 -173 117 -297 228 -401 188 -175 476 -231 735 -142 132 45 199 87 281 173 103 108 159 228 187 400 12 75 15 262 15 1103 l0 1012 -475 0 c-261 0 -475 -2 -475 -5z"></path>
+                                <path d="M2305 2734 c-326 -53 -572 -272 -639 -571 -21 -92 -21 -270 0 -371 33 -164 134 -314 272 -405 79 -53 217 -116 397 -182 201 -74 271 -111 341 -180 74 -73 96 -129 96 -242 -1 -96 -31 -162 -107 -231 -73 -67 -154 -97 -260 -96 -102 1 -167 28 -229 94 -61 66 -88 121 -111 232 l-5 28 -256 0 -257 0 7 -60 c21 -187 95 -345 226 -484 176 -186 400 -275 664 -263 198 9 362 65 508 176 127 96 233 262 280 436 31 118 31 338 -1 450 -82 290 -258 442 -689 594 -95 34 -198 74 -230 90 -70 35 -146 115 -161 167 -14 52 -14 147 1 198 18 60 99 138 163 157 100 29 212 9 275 -48 54 -48 76 -86 97 -168 l19 -70 244 0 244 0 -3 49 c-8 132 -80 311 -171 423 -96 119 -250 219 -395 258 -60 16 -263 28 -320 19z"></path>
+                                <path d="M3447 2481 l-187 -269 2 -417 3 -417 160 233 160 234 3 -907 c1 -533 6 -908 11 -908 5 0 168 233 362 518 775 1134 880 1287 889 1290 7 2 10 -320 10 -912 l0 -916 250 0 250 0 0 1370 0 1370 -232 0 -233 0 -390 -560 c-214 -307 -393 -559 -397 -559 -5 -1 -8 251 -8 559 l0 560 -232 0 -233 -1 -188 -268z"></path>
+                                <path d="M5445 2727 c-3 -7 -4 -114 -3 -237 l3 -225 483 -3 482 -2 0 -330 0 -330 -272 -2 -273 -3 0 -235 0 -235 273 -3 272 -2 0 -320 c0 -249 -3 -320 -12 -320 -7 0 -220 0 -473 0 -253 0 -466 -4 -473 -8 -9 -7 -12 -61 -10 -238 l3 -229 738 -3 737 -2 -2 1367 -3 1368 -733 3 c-588 2 -734 0 -737 -11z"></path>
+                                <path d="M7002 2503 l3 -238 478 -3 477 -2 0 -330 0 -330 -267 -2 -268 -3 -3 -237 -2 -238 270 0 270 0 -2 -320 -3 -321 -475 -2 -475 -2 -3 -237 -2 -238 735 0 735 0 0 1370 0 1370 -735 0 -735 0 2 -237z"></path>
+                                <path d="M8557 2723 c-4 -3 -7 -618 -7 -1365 l0 -1358 255 0 255 0 0 1130 0 1130 253 2 252 3 3 233 2 232 -503 0 c-277 0 -507 -3 -510 -7z"></path>
+                            </g>
+                        </svg>
+                    </span></a>
+                    <ul class="nav justify-content-center py-1 pb-sm-2">
+                        <li class="nav-item"><a class="nav-link py-2 px-3 mx-1" href="/docs/help">Help</a></li>
+                        <li class="nav-item"><a class="nav-link py-2 px-3 mx-1" href="/docs/attributions">Attributions</a></li>
+                        <li class="nav-item"><a class="nav-link py-2 px-3 mx-1" href="/docs/changelog">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="d-sm-flex align-items-center justify-content-between pt-4 mt-2 mt-sm-0">
+                    <div class="d-flex justify-content-center order-sm-2 mb-4 mb-sm-0"><a class="btn btn-icon btn-sm btn-secondary btn-instagram rounded-circle me-3" href="https://instagram.com/jsm33t" target="_blank"><i class="ai-instagram"></i></a><a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle me-3" href="https://facebook.com/jsm33t" target="_blank"><i class="ai-facebook"></i></a><a class="btn btn-icon btn-sm btn-secondary btn-youtube rounded-circle" href="https://youtube.com/jsm33tmusic" target="_blank"><i class="ai-youtube"></i></a></div>
+                    <p class="fs-sm order-sm-1 text-center mb-0"><span class="opacity-70">Made with Love</span></p>
+                </div>
+            </div>
+        </footer>
+        <span class=".d-none .d-lg-block .d-xl-none" style="min-width: 900px;"></span>
+        <!-- Back to top button-->
+        <a class="btn-scroll-top text-primary" href="#top" data-scroll="data-scroll">
+            <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="0"></circle>
+            </svg><i class="ai-arrow-up"></i>
+        </a>
+    </form>
+    <asp:ContentPlaceHolder ID="PageScripts" runat="server">
+    </asp:ContentPlaceHolder>
+    <script>
+
+        if (document.getElementById("nav_logout")) {
+            document.getElementById("mobile_nav_logout").addEventListener("click", logoutHandler);
+            document.getElementById("nav_logout").addEventListener("click", logoutHandler);
+            function logoutHandler(event) {
+                document.getElementById("btn_logout").click();
+            }
+}
+        
+
+        function livesearch() {
+            if (document.getElementById("global_search").value.length >= 2) {
+                document.getElementById("search_stat").innerHTML = "<i class=\"ai-clock\" style=\"padding-bottom:3px;\"></i> loading..";
+                var searchTerm = document.getElementById("global_search").value;
+                var xhrSearch = new XMLHttpRequest();
+                xhrSearch.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        const s_obj = JSON.parse(this.responseText);
+                        const sb = new StringBuilder();
+                        for (var i = 0; i < s_obj.length; i++) {
+                            var counter = s_obj[i];
+                            sb.append('<div class="d-flex align-items-center border-bottom pb-4 mb-4">');
+                            sb.append('<a class="position-relative d-inline-block flex-shrink-0 bg-secondary rounded-1" href="shop-single.html">');
+                            sb.append('<span class="badge bg-info position-absolute top-0 start-100 translate-middle ms-n1">Shop</span>');
+                            sb.append('<img src="/Content/img/shop/cart/01.png" width="90" alt="Product" /></a><div class="ps-3">');
+                            sb.append('<h4 class="h6 mb-2"><a href="/">' + counter.Title + '</a></h4>');
+                            sb.append(' <span class="fs-sm text-muted ms-auto">' + counter.Description + '</span>');
+                            sb.append('</div></div>');
+                        }
+                        document.getElementById("search_results").innerHTML = sb.toString();
+                        document.getElementById("search_stat").innerHTML = "search";
+                    }
+                };
+
+                xhrSearch.open("GET", "/Handlers/LiveSearchHandler.ashx?keyword=" + searchTerm, true);
+                xhrSearch.send();
+            }
+            else {
+                document.getElementById("search_results").innerHTML = "";
+                document.getElementById("search_stat").innerHTML = "search";
+            }
+        }
+    </script>
+    <script src="/Content/library/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/Content/library/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="/Content/library/nouislider/dist/nouislider.min.js"></script>
+    <script src="/Content/js/theme.min.js"></script>
+    <script src="/Content/js/jsm33t.js"></script>
+
+    <%--  <webopt:BundleReference runat="server" Path="~/Content/library" />--%>
+    <%--<script src="/Content/js/cursor.obfs.js"></script>--%>
+    <%-- <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>--%>
+</body>
+</html>

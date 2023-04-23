@@ -32,7 +32,7 @@ namespace jsmtcom.Blogs
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM blog_master", conn);
                 conn.Open();
-               
+
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())

@@ -37,6 +37,7 @@ namespace jsmtcom
             RouteTable.Routes.MapPageRoute("Acc"            , "account"                 , "~/Pages/Account/Profile.aspx");
             RouteTable.Routes.MapPageRoute("Acc/Login"      , "account/login"           , "~/Pages/Account/Login.aspx");
             RouteTable.Routes.MapPageRoute("BlogHome"       , "blog"                    , "~/Pages/Blog/Default.aspx");
+            RouteTable.Routes.MapPageRoute("BlogTags"       , "blog/tags/{tags}"        , "~/Pages/Blog/Tags.aspx");
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

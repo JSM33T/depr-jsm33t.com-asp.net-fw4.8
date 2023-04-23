@@ -260,10 +260,10 @@
                                                     <li><a class="dropdown-item" id="nav_home" href="/" runat="server">Home</a><span
                                                         class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 rounded-3 rounded-start-0"
                                                         style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
-                                                    <li><a class="dropdown-item " id="nav_music" href="/music" runat="server">Music</a><span
+                                                    <li><a class="dropdown-item disabled" id="nav_music" href="/music" runat="server">Music</a><span
                                                         class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
                                                         style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
-                                                    <li><a class="dropdown-item " id="nav_gallery" href="/gallery">Gallery</a><span
+                                                    <li><a class="dropdown-item disabled" id="nav_gallery" href="/gallery">Gallery</a><span
                                                         class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
                                                         style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
                                                     <li><a class="dropdown-item disabled" id="nav_blogs" href="#">Blogs</a><span
@@ -291,25 +291,24 @@
                                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown"><a class="dropdown-item dropdown-toggle" id="nav_music_pages" href="#" data-bs-toggle="dropdown" aria-expanded="false" runat="server">Music</a>
+                                        <li class="dropdown"><a class="dropdown-item dropdown-toggle disabled" id="nav_music_pages" href="#" data-bs-toggle="dropdown" aria-expanded="false" runat="server">Music</a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" id="nav_music_home" href="/music" runat="server">/</a></li>
+                                                <li><a class="dropdown-item disabled" id="nav_music_home" href="/music" runat="server">/</a></li>
                                                 <li><a class="dropdown-item disabled" href="#">Singles</a></li>
                                                 <li><a class="dropdown-item disabled" href="#">Albums</a></li>
                                                 <li><a class="dropdown-item disabled" href="#">Discography</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a class="dropdown-item  dropdown-toggle" href="#"
+                                        <li class="dropdown"><a class="dropdown-item  dropdown-toggle disabled" href="#"
                                             data-bs-toggle="dropdown" aria-expanded="false">Gallery</a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="/gallery">/</a></li>
+                                                <li><a class="dropdown-item disabled" href="/gallery">/</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#"
+                                        <li class="dropdown"><a class="dropdown-item dropdown-toggle disabled" href="#"
                                             data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="/blog">/</a></li>
-
+                                                <li><a class="dropdown-item disabled" href="/blog">/</a></li>
                                             </ul>
                                         </li>
 

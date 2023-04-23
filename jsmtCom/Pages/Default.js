@@ -10,7 +10,7 @@
 function mail_trigger() {
     $("#subbutton").html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Saving');
     $("#subbutton").attr("class", "btn btn-primary pe-none");
-    $('#MainContent_submitmail').click();
+   alert("reached");
 
 }
 

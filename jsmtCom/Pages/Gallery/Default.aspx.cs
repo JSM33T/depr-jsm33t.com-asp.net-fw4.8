@@ -11,11 +11,11 @@ namespace jsmtcom.Pages.Gallery
     public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { //added bg-light for main nav
+        {  
+            //added bg-light for main nav
             HtmlControl headermode = Master.FindControl("masterHeader") as HtmlControl;
             headermode.Attributes["class"] = "navbar navbar-expand-lg fixed-top bg-light";
 
-            //active in gallery(megamenu)
             HtmlAnchor navgal = Master.FindControl("nav_gallery") as HtmlAnchor;
             if (navgal != null)
             {

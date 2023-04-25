@@ -59,11 +59,13 @@ namespace jsmtcom
                             cmd.ExecuteNonQuery();
                             message = "Email Submitted";
                             type = "success";
+                            userEmail.Value = "";
                     }
                     else
                     {
                         message = "This email has already been submitted!!";
                         type = "error";
+                        
                     }
                     con.Close();
                 }

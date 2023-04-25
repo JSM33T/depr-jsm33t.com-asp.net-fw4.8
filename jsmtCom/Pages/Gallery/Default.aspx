@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Gallery" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" MetaDescription="gallery desc" MetaKeywords="gallery, jsm33t"   Inherits="jsmtcom.Pages.Gallery.Default" EnableViewState="false" EnableEventValidation="false" %>
+﻿<%@ Page Title="Gallery" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" MetaDescription="gallery desc" MetaKeywords="gallery, jsm33t" Inherits="jsmtcom.Pages.Gallery.Default" EnableViewState="false" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageStyles" runat="server">
     <link rel="stylesheet" media="screen" href="/Content/library/swiper/swiper-bundle.min.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <section>
-        <div class="jarallax bg-dark min-vh-100 py-5" data-jarallax data-type="scroll-opacity" data-speed="0.7">
+        <div class="jarallax bg-dark min-vh-100 py-5" data-jarallax="data-jarallax" data-type="scroll-opacity" data-speed="0.7">
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-40"></div>
             <div class="jarallax-img" style="background-image: url(/Content/images/gallery/header.jpg);"></div>
             <div class="container position-relative zindex-5 py-sm-4 py-lg-5 mt-4">
@@ -65,7 +65,7 @@
                     <div class="zoom-effect position-relative border-bottom pb-3" style="max-width: 512px;">
                         <div class="zoom-effect-wrapper">
                             <div class="zoom-effect-img">
-                                <img src="/Content/img/portfolio/grid/07.jpg" alt="Image">
+                                <img src="/Content/img/portfolio/grid/07.jpg" alt="Image" />
                             </div>
                         </div>
                         <div class="pt-4 mt-lg-2">
@@ -79,7 +79,7 @@
                     <div class="zoom-effect position-relative border-bottom pb-3" style="max-width: 704px;">
                         <div class="zoom-effect-wrapper">
                             <div class="zoom-effect-img">
-                                <img src="/Content/img/portfolio/grid/08.jpg" alt="Image">
+                                <img src="/Content/img/portfolio/grid/08.jpg" alt="Image" />
                             </div>
                         </div>
                         <div class="pt-4 mt-lg-2">
@@ -93,7 +93,7 @@
                     <div class="zoom-effect position-relative border-bottom pb-3" style="max-width: 467px;">
                         <div class="zoom-effect-wrapper">
                             <div class="zoom-effect-img">
-                                <img src="/Content/img/portfolio/grid/09.jpg" alt="Image">
+                                <img src="/Content/img/portfolio/grid/09.jpg" alt="Image" />
                             </div>
                         </div>
                         <div class="pt-4 mt-lg-2">
@@ -107,7 +107,7 @@
                     <div class="zoom-effect position-relative border-bottom ms-auto pb-3" style="max-width: 605px;">
                         <div class="zoom-effect-wrapper">
                             <div class="zoom-effect-img">
-                                <img src="/Content/img/portfolio/grid/10.jpg" alt="Image">
+                                <img src="/Content/img/portfolio/grid/10.jpg" alt="Image" />
                             </div>
                         </div>
                         <div class="pt-4 mt-lg-2">
@@ -121,7 +121,7 @@
                     <div class="zoom-effect position-relative border-bottom pb-3" style="max-width: 550px;">
                         <div class="zoom-effect-wrapper">
                             <div class="zoom-effect-img">
-                                <img src="/Content/img/portfolio/grid/11.jpg" alt="Image">
+                                <img src="/Content/img/portfolio/grid/11.jpg" alt="Image" />
                             </div>
                         </div>
                         <div class="pt-4 mt-lg-2">
@@ -135,7 +135,7 @@
                     <div class="zoom-effect position-relative border-bottom mx-auto pb-3" style="max-width: 470px;">
                         <div class="zoom-effect-wrapper">
                             <div class="zoom-effect-img">
-                                <img src="/Content/img/portfolio/grid/12.jpg" alt="Image">
+                                <img src="/Content/img/portfolio/grid/12.jpg" alt="Image" />
                             </div>
                         </div>
                         <div class="pt-4 mt-lg-2">
@@ -167,7 +167,7 @@
                 <div class="card zoom-effect border-0 rounded-1 overflow-hidden">
                     <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 zindex-2"></span>
                     <div class="zoom-effect-wrapper rounded-1">
-                        <img class="zoom-effect-img" src="/Content/img/shop/categories/02.jpg" alt="Category image">
+                        <img class="zoom-effect-img" src="/Content/img/shop/categories/02.jpg" alt="Category image" />
                     </div>
                     <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none zindex-3" href="shop-catalog.html"><span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">For the kitchen</span></a>
                 </div>
@@ -177,7 +177,7 @@
                         <div class="card zoom-effect border-0 rounded-1 overflow-hidden">
                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 zindex-2"></span>
                             <div class="zoom-effect-wrapper rounded-1">
-                                <img class="zoom-effect-img" src="/Content/img/shop/categories/03.jpg" alt="Category image">
+                                <img class="zoom-effect-img" src="/Content/img/shop/categories/03.jpg" alt="Category image" />
                             </div>
                             <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none zindex-3" href="shop-catalog.html"><span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">For the bathroom</span></a>
                         </div>
@@ -187,7 +187,7 @@
                         <div class="card zoom-effect border-0 rounded-1 overflow-hidden">
                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 zindex-2"></span>
                             <div class="zoom-effect-wrapper rounded-1">
-                                <img class="zoom-effect-img" src="/Content/img/shop/categories/04.jpg" alt="Category image">
+                                <img class="zoom-effect-img" src="/Content/img/shop/categories/04.jpg" alt="Category image" />
                             </div>
                             <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none zindex-3" href="shop-catalog.html"><span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">For the bedroom</span></a>
                         </div>
@@ -230,7 +230,7 @@
             <div class="row align-items-center g-3 g-lg-4 mb-3 mb-lg-4">
                 <div class="col-sm-6 text-center order-sm-2">
                     <div class="ai-instagram fs-2 text-primary mb-2 mb-md-3 mb-lg-4"></div>
-                    <h2 class="h1 mb-2 mb-sm-0">Follow us<br>
+                    <h2 class="h1 mb-2 mb-sm-0">Follow us<br />
                         <a href='#' class='text-primary text-decoration-none'>#stellar_pixels</a></h2>
                     <h2 class="h1 mb-2 mb-sm-0">
                         <a href='#' class='text-primary text-decoration-none'>#stellar_pixels</a></h2>
@@ -242,7 +242,7 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-20"></div>
                         </div>
                         <div class="zoom-effect-wrapper rounded-1">
-                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/01.jpg" alt="Instagram image">
+                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/01.jpg" alt="Instagram image" />
                         </div>
                     </a>
                 </div>
@@ -253,7 +253,7 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-20"></div>
                         </div>
                         <div class="zoom-effect-wrapper rounded-1">
-                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/02.jpg" alt="Instagram image">
+                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/02.jpg" alt="Instagram image" />
                         </div>
                     </a>
                 </div>
@@ -266,7 +266,7 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-20"></div>
                         </div>
                         <div class="zoom-effect-wrapper rounded-1">
-                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/03.jpg" alt="Instagram image">
+                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/03.jpg" alt="Instagram image" />
                         </div>
                     </a>
                 </div>
@@ -277,7 +277,7 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-20"></div>
                         </div>
                         <div class="zoom-effect-wrapper rounded-1">
-                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/04.jpg" alt="Instagram image">
+                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/04.jpg" alt="Instagram image" />
                         </div>
                     </a>
                 </div>
@@ -288,7 +288,7 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-20"></div>
                         </div>
                         <div class="zoom-effect-wrapper rounded-1">
-                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/05.jpg" alt="Instagram image">
+                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/05.jpg" alt="Instagram image" />
                         </div>
                     </a>
                 </div>
@@ -299,7 +299,7 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-20"></div>
                         </div>
                         <div class="zoom-effect-wrapper rounded-1">
-                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/06.jpg" alt="Instagram image">
+                            <img class="zoom-effect-img" src="/Content/img/landing/shop/instagram/06.jpg" alt="Instagram image" />
                         </div>
                     </a>
                 </div>

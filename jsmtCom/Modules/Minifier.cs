@@ -6,9 +6,7 @@ using System.Web;
 
 namespace jsmtcom.Modules
 {
-
-
-public static class Minifier
+    public static class Minifier
     {
       
     }

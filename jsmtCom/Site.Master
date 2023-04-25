@@ -106,8 +106,7 @@
 
 <body id="mainbody" runat="server">
 
-    <div id="cursor_out" class="cursor cursorvis"></div>
-    <div id="cursor_in" class="cursor2 cursorvis"></div>
+   
 
 
     <span hidden="hidden">
@@ -119,8 +118,6 @@
         </div>
     </div>
     <form runat="server">
-        <%--       <div id="cursor_out" class="cursor cursorvis"></div>
-        <div id="cursor_in" class="cursor2 cursorvis"></div>--%>
         <asp:ScriptManager runat="server" EnableCdn="true">
             <Scripts>
                 <asp:ScriptReference Name="MsAjaxBundle" />
@@ -407,7 +404,6 @@
     <script src="/Content/js/jsm33t.js"></script>
 
     <%--  <webopt:BundleReference runat="server" Path="~/Content/library" />--%>
-    <%--<script src="/Content/js/cursor.obfs.js"></script>--%>
     <%-- <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>--%>

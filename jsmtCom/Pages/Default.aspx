@@ -7,10 +7,140 @@
     AutoEventWireup="true"
     CodeBehind="Default.aspx.cs"
     Inherits="jsmtcom.Default" %>
+
 <%@ MasterType VirtualPath="~/Site.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageStyles" runat="server">
     <style>
- .scroll-down-btn{display:inline-block;text-decoration:none}.scroll-down-btn p{margin-top:1.25rem;color:#fff;font-size:.875rem;font-weight:500;letter-spacing:.375rem;text-indent:.375rem;animation:5s ease-out infinite colorText,5s ease-out infinite nudgeText}.mouse{background:linear-gradient(transparent 0,transparent 50%,#fff 50%,#fff 100%) #2c333e;position:relative;width:38px;height:65px;margin:0 auto;border-radius:6rem;background-size:100% 200%;animation:5s linear infinite colorSlide,5s ease-out infinite nudgeMouse}.mouse:after,.mouse:before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;margin:auto}.mouse:before{width:34px;height:61px;background-color:#121519;border-radius:6rem}.mouse:after{background-color:#fff;width:.375rem;height:.375rem;border-radius:100%;animation:5s linear infinite trackBallSlide}@keyframes colorSlide{0%{background-position:0 100%}20%,50%,80%{background-position:0 0}21%,51%,81%{background-color:#2c333e}29.99%,59%{background-color:#fff;background-position:0 0}30%,60%{background-color:#2c333e;background-position:0 100%}100%,90%{background-color:#fff}}@keyframes trackBallSlide{0%,100%,28%,29.99%,30%,58%,59.99%,60%,88%{opacity:1;transform:scale(1) translateY(-20px)}36%,6%,66%{opacity:1;transform:scale(.9) translateY(5px)}14%,44%,74%{opacity:0;transform:scale(.4) translateY(40px)}15%,19%,45%,49%,75%,79%{opacity:0;transform:scale(.4) translateY(-20px)}}@keyframes nudgeMouse{0%,30%,60%,90%{transform:translateY(0)}20%,50%,80%{transform:translateY(8px)}}@keyframes nudgeText{0%,30%,60%,90%{transform:translateY(0)}20%,50%,80%{transform:translateY(2px)}}@keyframes colorText{21%,51%,81%{color:#2c333e}30%,60%,90%{color:#fff}}
+        .scroll-down-btn {
+            display: inline-block;
+            text-decoration: none
+        }
+
+            .scroll-down-btn p {
+                margin-top: 1.25rem;
+                color: #fff;
+                font-size: .875rem;
+                font-weight: 500;
+                letter-spacing: .375rem;
+                text-indent: .375rem;
+                animation: 5s ease-out infinite colorText,5s ease-out infinite nudgeText
+            }
+
+        .mouse {
+            background: linear-gradient(transparent 0,transparent 50%,#fff 50%,#fff 100%) #2c333e;
+            position: relative;
+            width: 38px;
+            height: 65px;
+            margin: 0 auto;
+            border-radius: 6rem;
+            background-size: 100% 200%;
+            animation: 5s linear infinite colorSlide,5s ease-out infinite nudgeMouse
+        }
+
+            .mouse:after, .mouse:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto
+            }
+
+            .mouse:before {
+                width: 34px;
+                height: 61px;
+                background-color: #121519;
+                border-radius: 6rem
+            }
+
+            .mouse:after {
+                background-color: #fff;
+                width: .375rem;
+                height: .375rem;
+                border-radius: 100%;
+                animation: 5s linear infinite trackBallSlide
+            }
+
+        @keyframes colorSlide {
+            0% {
+                background-position: 0 100%
+            }
+
+            20%,50%,80% {
+                background-position: 0 0
+            }
+
+            21%,51%,81% {
+                background-color: #2c333e
+            }
+
+            29.99%,59% {
+                background-color: #fff;
+                background-position: 0 0
+            }
+
+            30%,60% {
+                background-color: #2c333e;
+                background-position: 0 100%
+            }
+
+            100%,90% {
+                background-color: #fff
+            }
+        }
+
+        @keyframes trackBallSlide {
+            0%,100%,28%,29.99%,30%,58%,59.99%,60%,88% {
+                opacity: 1;
+                transform: scale(1) translateY(-20px)
+            }
+
+            36%,6%,66% {
+                opacity: 1;
+                transform: scale(.9) translateY(5px)
+            }
+
+            14%,44%,74% {
+                opacity: 0;
+                transform: scale(.4) translateY(40px)
+            }
+
+            15%,19%,45%,49%,75%,79% {
+                opacity: 0;
+                transform: scale(.4) translateY(-20px)
+            }
+        }
+
+        @keyframes nudgeMouse {
+            0%,30%,60%,90% {
+                transform: translateY(0)
+            }
+
+            20%,50%,80% {
+                transform: translateY(8px)
+            }
+        }
+
+        @keyframes nudgeText {
+            0%,30%,60%,90% {
+                transform: translateY(0)
+            }
+
+            20%,50%,80% {
+                transform: translateY(2px)
+            }
+        }
+
+        @keyframes colorText {
+            21%,51%,81% {
+                color: #2c333e
+            }
+
+            30%,60%,90% {
+                color: #fff
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -63,7 +193,6 @@
 
     <section class="container pt-5 mt-5" id="subs">
         <div class="bg-dark position-relative rounded-5 overflow-hidden px-4 pt-1 pb-2 py-sm-4 py-lg-5">
-
             <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(255,255,255, .02);"></div>
             <div class="position-absolute top-0 end-0 pe-5 zindex-2">
                 <svg class="me-5" width="514" height="254" viewBox="0 0 514 254" fill="white" fill-opacity=".03" xmlns="http://www.w3.org/2000/svg">
@@ -78,8 +207,7 @@
                 </div>
                 <div data-aos="fade-right" data-aos-duration="700" data-aos-anchor-placement="bottom-bottom">
                     <svg class="text-warning" width="117" height="117" viewBox="0 0 117 117" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M-2.51516e-06 58.5C-3.52666e-06 70.0702 3.43096 81.3806 9.85902 91.0008C16.2871 100.621 25.4235 108.119 36.113 112.547C46.8025 116.975 58.5649 118.133 69.9128 115.876C81.2607 113.619 91.6844 108.047 99.8657 99.8657C108.047 91.6844 113.619 81.2607 115.876 69.9128C118.133 58.5649 116.975 46.8025 112.547 36.113C108.119 25.4235 100.621 16.2871 91.0009 9.85903C81.3806 3.43096 70.0702 -4.24071e-06 58.5 -5.11423e-06L58.5 58.5L-2.51516e-06 58.5Z">
-                        </path>
+                        <path d="M-2.51516e-06 58.5C-3.52666e-06 70.0702 3.43096 81.3806 9.85902 91.0008C16.2871 100.621 25.4235 108.119 36.113 112.547C46.8025 116.975 58.5649 118.133 69.9128 115.876C81.2607 113.619 91.6844 108.047 99.8657 99.8657C108.047 91.6844 113.619 81.2607 115.876 69.9128C118.133 58.5649 116.975 46.8025 112.547 36.113C108.119 25.4235 100.621 16.2871 91.0009 9.85903C81.3806 3.43096 70.0702 -4.24071e-06 58.5 -5.11423e-06L58.5 58.5L-2.51516e-06 58.5Z"></path>
                     </svg>
                 </div>
             </div>
@@ -89,26 +217,22 @@
                 <div class="subscription-form  mx-auto" name="mc-embedded-subscribe-form" novalidate="novalidate" style="max-width: 500px;">
                     <div class="input-group">
                         <span class="input-group-text"><i class="ai-mail"></i></span>
-                        <input class="form-control" type="text" id="userEmail" name="userEmail" placeholder="Enter your email" runat="server" autocomplete="off" aria-autocomplete="none"/>
+                        <input class="form-control" type="text" id="userEmail" name="userEmail" placeholder="Enter your email" runat="server" autocomplete="off" aria-autocomplete="none" />
                         <button type="button" class="btn btn-primary" id="subbutton" onclick="mail_init()" name="subscribe">Subscribe</button>
                     </div>
-
                     <%--   <asp:UpdatePanel ID="triggerbutton" runat="server">
                         <ContentTemplate>
                             <asp:Button ID="submitmail" Text="nil" onclick="SubmitClick" runat="server" hidden="hidden"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>--%>
-
                     <asp:UpdatePanel ID="emailstat" runat="server">
                         <ContentTemplate>
                             <asp:Literal ID="stat" runat="server" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
-
-
                     <%--<span id="userEmail-info"></span>--%>
                     <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                        <input class="subscription-form-antispam" type="text" name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1"/>
+                        <input class="subscription-form-antispam" type="text" name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1" />
                     </div>
                 </div>
             </div>
@@ -123,8 +247,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageScripts" runat="server">
     <script>
-//default.js
-        function mail_trigger() { $("#subbutton").html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Saving'), $("#subbutton").attr("class", "btn btn-primary pe-none"), $("#MainContent_submitmail").click() } function mail_init() { var t; document.getElementById("MainContent_userEmail").value.match(/^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/) ? mail_trigger() : ($("#MainContent_emailstat").html('<div class="subscription-status mx-auto status-error">Invalid Email Format</div>'), setTimeout(() => { $("#MainContent_emailstat").html("") }, 4e3)) } function pageLoad() { $("#subbutton").html("Subscribe"), $("#subbutton").attr("class", "btn btn-primary"), setTimeout(() => { $("#MainContent_emailstat").html("") }, 4e3) } $(document).ready(function () { $("#MainContent_userEmail").keypress(function (t) { (10 === t.keyCode || 13 === t.keyCode) && (t.preventDefault(), mail_init()) }) });
+        //content in default.js
+        function mail_trigger() {
+            document.getElementById("subbutton").innerHTML = "<span class=\"spinner-border spinner-border-sm me-2\" role=\"status\" aria-hidden=\"true\"></span>Saving";
+            document.getElementById("subbutton").setAttribute("class", "btn btn-primary pe-none");
+            document.getElementById("MainContent_submitmail").click();
+
+        }
+
+        function mail_init() {
+            var t;
+            document.getElementById("MainContent_userEmail").value.match(/^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/) ? mail_trigger() : ($("#MainContent_emailstat").html('<div class="subscription-status mx-auto status-error">Invalid Email Format</div>'), setTimeout(() => {
+                $("#MainContent_emailstat").html("")
+            }, 4e3))
+        }
+
+        function pageLoad() {
+            $("#subbutton").html("Subscribe"), $("#subbutton").attr("class", "btn btn-primary"), setTimeout(() => {
+                $("#MainContent_emailstat").html("")
+                $("#MainContent_userEmail").value = "";
+            }, 4e3)
+        }
+        $(document).ready(function () {
+            //bind enter key to subscribe
+            $("#MainContent_userEmail").keypress(function (t) {
+                (10 === t.keyCode || 13 === t.keyCode) && (t.preventDefault(), mail_init())
+            })
+        });
     </script>
 
     <script src="/Content/library/aos/dist/aos.js"></script>

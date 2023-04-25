@@ -45,7 +45,6 @@
                 preloader.classList.remove('active');
                 setTimeout(function () {
                     preloader.remove();
-                    //keeping the loader temporarily off
                 }, 500);
 
                 let elem_theme = localStorage.getItem("cust_theme");
@@ -55,12 +54,6 @@
                     var a = document.getElementById('custom_font');
                     a.href = elem_font;
                 }
-
-                //if (screen.width < 3000) {
-                //    document.getElementById('cursor_out').setAttribute("hidden", "hidden"); 
-                //    document.getElementById('cursor_in').setAttribute("hidden", "hidden"); 
-                //}
-
                 document.addEventListener('keydown', function (event) {
                     if (event.ctrlKey && event.key === 'f') {
                         event.preventDefault();
@@ -149,7 +142,6 @@
                         </div>
                         <div class="modal-body pt-3">
                             <div id="search_results">
-
                                 <%--   <div class="d-flex align-items-center border-bottom pb-4 mb-4">
                                     <a class="position-relative d-inline-block flex-shrink-0 bg-secondary rounded-1" href="shop-single.html"><span class="badge bg-info position-absolute top-0 start-100 translate-middle ms-n1">Shop</span><img src="/Content/img/shop/cart/01.png" width="90" alt="Product"/></a>
                                     <div class="ps-3">
@@ -164,9 +156,7 @@
                     </div>
                 </div>
             </div>
-
-            <span hidden="hidden">
-                <asp:Literal ID="WrapperTheme" runat="server" /></span>
+            <span hidden="hidden"><asp:Literal ID="WrapperTheme" runat="server" /></span>
             <div class="" id="wrapper_theme" runat="server">
                 <header class="navbar navbar-expand-lg fixed-top" id="masterHeader" runat="server">
                     <div class="container">
@@ -196,7 +186,6 @@
                                         </path>
                                     </g>
                                 </svg>
-
                             </span>
                         </a>
                         <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
@@ -205,12 +194,12 @@
                             <label class="form-check-label" for="theme-mode"><i class="ai-moon fs-lg"></i></label>
                         </div>
                         <div class="nav align-items-center order-lg-3 ms-n1 me-3 me-sm-2">
-                            <a class="nav-link fs-4 p-2 mx-sm-1" id="search_trigger_a"
-                                href="#searchModal" data-bs-toggle="modal"><i class="ai-search"></i></a>
+                            <a class="nav-link fs-4 p-2 mx-sm-1" id="search_trigger_a" href="#searchModal" data-bs-toggle="modal">
+                                <i class="ai-search"></i>
+                            </a>
                         </div>
                         <!-- User signed in state. Account dropdown on screens > 576px-->
                         <div class="dropdown nav d-none d-sm-block order-lg-3">
-
                             <a class="nav-link d-flex align-items-center p-0"
                                 href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <asp:UpdatePanel ID="avatarmasterpanel" UpdateMode="Always" runat="server">
@@ -252,31 +241,10 @@
                                         <div class="d-lg-flex">
                                             <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">
                                                 <ul class="list-unstyled mb-0">
-                                                    <li><a class="dropdown-item" id="nav_home" href="/" runat="server">Home</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 rounded-3 rounded-start-0"
-                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" id="nav_music" href="/music" runat="server">Music</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" id="nav_gallery" href="/gallery">Gallery</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" id="nav_blogs" href="#">Blogs</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                        style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" href="#">Shop</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                        style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" href="#">Portfolio<span
-                                                        class="text-danger fs-xs ms-2">New</span></a><span
-                                                            class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                            style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" href="#">Archive</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                        style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
-                                                    <li><a class="dropdown-item disabled" href="#">People</a><span
-                                                        class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0"
-                                                        style="background-image: url(/Content/images/megamenu/marketing-agency.jpg);"></span></li>
+                                                    <li><a class="dropdown-item" id="nav_home" href="/" runat="server">Home</a><span class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 rounded-3 rounded-start-0" style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" id="nav_music" href="/music" runat="server">Music</a><span class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0" style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" id="nav_gallery" href="/gallery">Gallery</a><span class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0" style="background-image: url(/Content/images/megamenu/music.jpg);"></span></li>
+                                                    <li><a class="dropdown-item disabled" id="nav_blogs" href="#">Blogs</a><span class="mega-dropdown-column position-absolute top-0 end-0 h-100 bg-size-cover bg-repeat-0 zindex-2 opacity-0" style="background-image: url(/Content/images/megamenu/archive.jpg);"></span></li>
                                                 </ul>
                                             </div>
                                             <div class="mega-dropdown-column position-relative border-start zindex-3"></div>
@@ -311,22 +279,18 @@
                                 </li>
 
                                 <li class="nav-item"><a class="nav-link disabled" href="/me">Me</a></li>
-
-                                <li class="nav-item dropdown d-sm-none border-top mt-2 pt-2"><a class="nav-link" href="#"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item dropdown d-sm-none border-top mt-2 pt-2">
+                                <a class="nav-link" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <asp:UpdatePanel ID="avatarmaster_mobile" UpdateMode="Always" runat="server">
                                         <ContentTemplate>
-                                            <img class="border rounded-circle"
-                                                src="/Content/images/avatars/default/default.png" width="48" alt="avatar image" id="avtmobilemaster" runat="server" />
+                                            <img class="border rounded-circle" src="/Content/images/avatars/default/default.png" width="48" alt="avatar image" id="avtmobilemaster" runat="server" />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                     <asp:UpdatePanel ID="fnamemaster_mobile" UpdateMode="Always" runat="server">
                                         <ContentTemplate>
                                             <div class="ps-2">
                                                 <div class="fs-xs lh-1 opacity-60">Hey,</div>
-                                                <div class="fs-sm dropdown-toggle">
-                                                    <asp:Literal ID="fname_mobile" runat="server" />
-                                                </div>
+                                                <div class="fs-sm dropdown-toggle"><asp:Literal ID="fname_mobile" runat="server" /></div>
                                             </div>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
@@ -339,8 +303,6 @@
                                         <a class="dropdown-item disabled" id="mobile_nav_profile" href="/account" runat="server"><i class="ai-user-check fs-lg opacity-70 me-2"></i>Profile</a>
                                         <div class="dropdown-divider"></div>
                                         <h6 class="dropdown-header fs-xs fw-medium text-muted text-uppercase pb-1">Account</h6>
-
-
                                         <a class="dropdown-item disabled" id="mobile_nav_favourites" href="#" runat="server"><i class="ai-heart fs-lg opacity-70 me-2"></i>Favourites</a>
                                         <a class="dropdown-item disabled" id="mobile_nav_logout" href="#" runat="server"><i class="ai-logout fs-lg opacity-70 me-2"></i>Log Out</a>
                                     </div>
@@ -350,8 +312,7 @@
                     </div>
                 </header>
             </div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             <asp:UpdatePanel ID="login_btn" runat="server">
                 <ContentTemplate>
                     <asp:Button Text="Login" ID="btn_logout" OnClick="LogOutClick" runat="server" hidden="hidden" />

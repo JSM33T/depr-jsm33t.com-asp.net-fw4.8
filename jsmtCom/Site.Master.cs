@@ -8,8 +8,7 @@ namespace jsmtcom
 {
     public partial class SiteMaster : MasterPage
     {
-        private string avatarimage,
-            userrole;
+        private string avatarimage,userrole;
         public string Avtimage
         {
             get { return avatarimage; }

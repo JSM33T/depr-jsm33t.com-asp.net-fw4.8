@@ -41,19 +41,11 @@ namespace jsmtcom
                 avatarimage = "default";
                 userrole = "guest";
             }
-            // redirect = HttpContext.Current.Request.Url.AbsolutePath.ToString();
-            //set avatar images
-            avatarmaster.Attributes.Add(
-                "src",
-                "/Content/images/avatars/default/" + avatarimage + ".png"
-            );
-            avtmobilemaster.Attributes.Add(
-                "src",
-                "/Content/images/avatars/default/" + avatarimage + ".png"
-            );
-            // redir back to login initiating page
-            string redurl =
-                "/account/login?red=" + HttpContext.Current.Request.Url.AbsolutePath.ToString();
+
+            avatarmaster.Attributes.Add( "src", "/Content/images/avatars/default/" + avatarimage + ".png");
+            avtmobilemaster.Attributes.Add("src","/Content/images/avatars/default/" + avatarimage + ".png");
+            
+            string redurl = "/account/login?red=" + HttpContext.Current.Request.Url.AbsolutePath.ToString();
             nav_login.Attributes.Add("href", redurl);
             og_desc.Attributes.Add("Content", Page.MetaDescription.ToString());
             og_title.Attributes.Add("Content", Page.Title.ToString());

@@ -46,7 +46,7 @@
                 setTimeout(function () {
                     preloader.remove();
                     //keeping the loader temporarily off
-                }, 0);
+                }, 500);
 
                 let elem_theme = localStorage.getItem("cust_theme");
                 if (elem_theme !== undefined && elem_theme !== "") { document.getElementById("custom_theme").innerHTML = elem_theme; }
@@ -81,7 +81,7 @@
                             localStorage.removeItem("mode");
                         }
                         else {
-                           
+
                             themeMode.checked = true;
                             if (persMode) { persMode.checked = true; }
                             root.classList.add('dark-mode');
@@ -102,24 +102,19 @@
     <link rel="stylesheet" media="screen" href="/Content/library/lightgallery/css/lightgallery-bundle.min.css" />
     <link rel="stylesheet" media="screen" href="/Content/css/theme.min.css">
     <link rel="stylesheet" media="screen" href="/Content/css/jsm33t.css">
-<%--    <link href="Content/css/contextmenu.css" rel="stylesheet" />
+    <%--    <link href="Content/css/contextmenu.css" rel="stylesheet" />
     <script src="Content/css/contextmenu.js"></script>--%>
     <style id="custom_theme"></style>
-
     <script src="/Scripts/jquery-3.6.0.js"></script>
-    <script>
-    
-    </script>
-
     <%--page specific styles--%>
     <asp:ContentPlaceHolder ID="PageStyles" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 
 <body id="mainbody" runat="server">
-   
+
     <div id="cursor_out" class="cursor cursorvis"></div>
-        <div id="cursor_in" class="cursor2 cursorvis"></div>
+    <div id="cursor_in" class="cursor2 cursorvis"></div>
 
 
     <span hidden="hidden">
@@ -131,7 +126,7 @@
         </div>
     </div>
     <form runat="server">
- <%--       <div id="cursor_out" class="cursor cursorvis"></div>
+        <%--       <div id="cursor_out" class="cursor cursorvis"></div>
         <div id="cursor_in" class="cursor2 cursorvis"></div>--%>
         <asp:ScriptManager runat="server" EnableCdn="true">
             <Scripts>
@@ -408,8 +403,8 @@
             function logoutHandler(event) {
                 document.getElementById("btn_logout").click();
             }
-}
-        
+        }
+
 
         function livesearch() {
             if (document.getElementById("global_search").value.length >= 2) {

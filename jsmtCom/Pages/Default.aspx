@@ -47,9 +47,7 @@
                     <div data-aos="flip-right" data-aos-duration="1000" data-aos-offset="400" data-aos-delay="350">3</div>
                     <div data-aos="flip-right" data-aos-duration="1000" data-aos-offset="400" data-aos-delay="400">T</div>
                 </div>
-
             </div>
-
         </div>
         <div class="col-md-5 col-lg-6 offset-xxl-1 order-md-2 position-relative mb-3 mb-md-0" style="margin-top: 180px; margin-left: 350px;">
             <div class="d-none d-md-block position-absolute bottom-0 end-0 text-uppercase fw-bold lh-1 pb-5 mb-4 pe-3" style="color: var(--ar-gray-100); font-size: 180px; transform: translate3d(0,0,0);">
@@ -59,9 +57,7 @@
                     <div data-aos="flip-right" data-aos-duration="2100" data-aos-offset="400" data-aos-delay="600">o</div>
                     <div data-aos="flip-right" data-aos-duration="2000" data-aos-offset="400" data-aos-delay="650">m</div>
                 </div>
-
             </div>
-
         </div>
     </section>
 

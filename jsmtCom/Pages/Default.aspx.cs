@@ -30,6 +30,12 @@ namespace jsmtcom
         {
             string elem;
             string message, type;
+            string path = HttpContext.Current.Request.Url.AbsolutePath.Trim();
+
+            if (path.Length >= 100)
+            {
+                path = path.Remove(0, 100);
+            }
             if (userEmail.Value.Trim() == "")
             {
                 message = "Email can't be empty";
@@ -47,53 +53,23 @@ namespace jsmtcom
                     { elem = "0"; }
                     else
                     { elem = cmd.ExecuteScalar().ToString(); }
-                    
-                    con.Close();
-                }
-
-                if (elem == "0")
-                {
-                    try
+                    if (elem == "0")
                     {
-                        InsertMail();
-                        message = "Email Submitted";
-                        type = "success";
+                            cmd.CommandText = "insert into MailingList(email,origin) Values('" + userEmail.Value.Trim() + "','" + path + "' )";
+                            cmd.ExecuteNonQuery();
+                            message = "Email Submitted";
+                            type = "success";
                     }
-                    catch
+                    else
                     {
-                        message = "something went wrong" ;
+                        message = "This email has already been submitted!!";
                         type = "error";
                     }
-
-                }
-                else
-                {
-                    message = "This email has already been submitted!!";
-                    type = "error";
+                    con.Close();
                 }
             }
 
             stat.Text = Modules.CustomStringBuilder.AlertMessage(message, type);
-        }
-        protected void InsertMail()
-        {
-
-            string path = HttpContext.Current.Request.Url.AbsolutePath.Trim();
-
-            if (path.Length >= 100)
-            {
-                path = path.Remove(0, 100);
-            }
-
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                cmd.Connection = con;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into MailingList(email,origin) Values('" + userEmail.Value.Trim() + "','" + path + "' )";
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
         }
     }
 }
